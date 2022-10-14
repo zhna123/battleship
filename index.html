@@ -8,11 +8,41 @@
 </head>
 <body>
     <script src="bundle.js" defer></script>
+    <div class="start_form_container">
+        <form action="index.html" method="post" id="game_info">
+            <div>BATTLESHIP</div>
+            
+            <div>
+                <label for="player1_name">PLAYER1 NAME</label>
+                <input type="text" name="player1_name" id="player1_name">              
+            </div>
+
+            <div>
+                <label for="player_goes_first">GOES FIRST</label>
+                <input type="radio" name="player_goes_first" id="first" checked>
+            </div>
+
+            <div class="separate"></div>
+           
+            <div>
+                <label for="player2_name">PLAYER2 NAME</label>
+                <input type="text" name="player2_name" id="player2_name" placeholder="COMPUTER" disabled>              
+            </div>
+
+            <div>
+                <label for="player_goes_first">GOES FIRST</label>
+                <input type="radio" name="player_goes_first" id="second">
+            </div>
+            <button type="submit">START GAME</button>
+        </form>
+    </div>
     <div class="container">
         <div class="title"></div>
         <div class="line"></div>
         <div class="gameboards"></div>
         <div class="progress"></div>
+        <div class="overlay"></div>
+        <div class="game_end"></div>
     </div>
 </body>
 </html>
