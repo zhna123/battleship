@@ -1,20 +1,35 @@
-# battleship
+# BATTLESHIP
 
-## webpack setup - basic
+## Introduction
+1. BATTLESHIP simulates the classic battleship game. 
+2. Player will play against computer.
+3. Player can choose who goes first.
 
-1. install webpack locally
+## Game Demo
+[BATTLESHIP DEMO](link)
+
+## Further Work
+Two human players mode - support playing on mobile device
+
+## Other
+1. The project is set up with webpack
+2. Unit testing - JEST
+
+## Webpack Setup - Basics
+
+1. Install webpack locally
 ```
 npm init -y
 npm install webpack webpack-cli --save-dev
 
 ```
-2. setup directory structure
+2. Setup directory structure
 ```
 /dist/index.html
 /src/index.js
 ```
 
-3. create configuration file `webpack.config.js`. eg:
+3. Create configuration file `webpack.config.js`. eg:
 ```
 const path = require('path');
 
@@ -27,12 +42,12 @@ module.exports = {
 };
 ```
 
-4. create a bundle
+4. Create a bundle
 * install dependency locally using `npm install`
 * import denpendency in the script using `import` statement
 * load the bundle from html file using `script` tag: `<script src="bundle.js"></script>`
 
-5. run webpack by running \
+5. Run webpack by running \
 `npx webpack --config webpack.config.js` \
 or by editting `package.json`
 ```
@@ -46,12 +61,12 @@ then run
 npm run build
 ```
 
-## loading CSS
+## Loading CSS
 
 1. `npm install --save-dev style-loader css-loader`
-2. edit config file by adding `style-loader` and `css-loader` to the module configuration
-3. now we can import css into the script `import './style.css'`
+2. Edit config file by adding `style-loader` and `css-loader` to the module configuration
+3. Now we can import css into the script `import './style.css'`
 
 ## useful settings
-* use source map by adding `devtool: 'inline-source-map',` to config file
-* watch mode - add `"watch": "webpack --watch"` to script section of `package.json`
+* Use source map by adding `devtool: 'inline-source-map',` to config file
+* Watch mode - add `"watch": "webpack --watch"` to script section of `package.json`

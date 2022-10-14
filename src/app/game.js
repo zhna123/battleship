@@ -60,7 +60,7 @@ const Game = function(playerName, firstPlayerName) {
             const columns = Array.from(row.querySelectorAll('.column'));
             columns.forEach((column, columnIndex) => {
                 // add event listener
-                column.addEventListener('click', attackListener.bind(null, rowIndex, columnIndex, column))
+                column.addEventListener('click', attackListener.bind(null, rowIndex, columnIndex, column), {once: true})
             })
         })
     }

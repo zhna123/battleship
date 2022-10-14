@@ -1,4 +1,4 @@
-import { over } from "lodash";
+import { over, rest } from "lodash";
 
 /*
     DOM manipulations
@@ -14,7 +14,6 @@ function renderPlayer1Gameboard(player1, gameboard) {
         const columns = Array.from(row.querySelectorAll('.column'));
         columns.forEach((column, columnIndex) => {
             column.textContent = gameboard[rowIndex][columnIndex];
-            // add event listener
         })
     })
 
@@ -29,13 +28,21 @@ function renderResult(winner) {
     const overlayDiv = document.querySelector('.overlay');
     const gameEndDiv = document.querySelector('.game_end');
     overlayDiv.style.display = 'block';
-    gameEndDiv.style.display = 'flex';
+    gameEndDiv.style.display = 'block';
 
     gameEndDiv.textContent = 'WINNER IS: ' + winner.name;
+
+    const img = document.createElement('img');
+    gameEndDiv.appendChild(img);
+    
     // restart button
     const restart = document.createElement('button');
     restart.classList.add('restart');
     restart.textContent = 'PLAY AGAIN';
+
+    restart.addEventListener('click', () => {
+        location.reload();
+    })
 
     gameEndDiv.appendChild(restart);
     

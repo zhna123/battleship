@@ -31,7 +31,7 @@ const StartForm = function() {
         startForm.style.display = 'none';
     
         const mainContainer = document.querySelector('.container');
-        mainContainer.style.display = 'flex';
+        mainContainer.style.display = 'block';
     }
 
     return {submitForm};
