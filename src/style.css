@@ -4,7 +4,7 @@
 }
 
 .container {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
@@ -126,16 +126,97 @@
     color: lightseagreen;
 }
 
-.result_chart {
+.overlay {
     display: none;
+    position: absolute;
+    background-color: rgba(211, 211, 211, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.game_end {
+    display: none;
+    position: absolute;
+    background-color: lightseagreen;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    z-index: 200;
+
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    font-size: 2rem;
+    color: rgb(88, 86, 86);
+    gap: 60px;
+    
+}
+
+.restart {
+    width: 40%;
+    height: 15%;
+    font: inherit;
+    font-size: 1.1rem;
+    color: rgb(88, 86, 86);
+    border: none;
+    box-shadow: 5px 2px 2px rgb(88, 86, 86);
+    cursor: pointer;
+}
+
+.start_form_container {
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 10px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: rgb(88, 86, 86);
-    background-color: rgba(32, 178, 171, 0.5);
-    height: 90%;
-    width: 40%;
+
 }
+
+.start_form_container > form > div:not(div.separate) {
+    height: 70px;
+    color: lightseagreen;
+    font-weight: bold;
+}
+
+div.separate {
+    height: 2px;
+    width: 100%;
+    margin: 0 auto 50px;
+    background-color: lightgray;
+}
+
+form > div:first-child {
+    font-size: 2rem;
+    text-align: center;
+    padding: 30px;
+}
+
+input[type=text] {
+    box-sizing: border-box;
+    height: 30px;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+input[type=radio] {
+    height: 20px;
+    width: 20px;
+    margin-top: -2px;
+    vertical-align: middle;
+}
+
+button[type=submit] {
+    display: block;
+    width: 120px;
+    height: 40px;
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 5px;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+}
+
 

@@ -1,3 +1,5 @@
+import { over } from "lodash";
+
 /*
     DOM manipulations
 */
@@ -24,27 +26,18 @@ function renderAIPlayerGameboard(aiPlayer) {
 }
 
 function renderResult(winner) {
-    const progressChartDivs = Array.from(document.querySelectorAll('.progress_chart'));
-    progressChartDivs.forEach(div => div.style.display = 'none');
-    
-    const resultDivs = Array.from(document.querySelectorAll('.result_chart'));
-    resultDivs.forEach((div, index) => {
-        div.style.display = 'flex';
-        if (winner.name == 'COMPUTER') {
-            if (index == 0) {
-                div.textContent = 'LOST';
-            } else {
-                div.textContent = 'WON';
-            }
-        } else {
-            if (index == 0) {
-                div.textContent = 'WON';
-            } else {
-                div.textContent = 'LOST';
-            }
-        }
-        
-    })
+    const overlayDiv = document.querySelector('.overlay');
+    const gameEndDiv = document.querySelector('.game_end');
+    overlayDiv.style.display = 'block';
+    gameEndDiv.style.display = 'flex';
+
+    gameEndDiv.textContent = 'WINNER IS: ' + winner.name;
+    // restart button
+    const restart = document.createElement('button');
+    restart.classList.add('restart');
+    restart.textContent = 'PLAY AGAIN';
+
+    gameEndDiv.appendChild(restart);
     
 }
 
