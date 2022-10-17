@@ -41,6 +41,7 @@ const Game = function(playerName, firstPlayerName) {
             columns.forEach((column, columnIndex) => {
                 if (rowIndex == attackedCoordinate[0] && columnIndex == attackedCoordinate[1]) {
                     if (player1Gameboard.gameboard[rowIndex][columnIndex] !== undefined) {
+                        // get a hit
                         column.style.backgroundColor = 'indianred';
                         updateShipState(player1Gameboard.gameboard[rowIndex][columnIndex], player1);
 

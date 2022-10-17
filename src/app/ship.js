@@ -1,11 +1,10 @@
-// create ship factory function
 const shipMap = new Map();
 shipMap.set('P', 2);
 shipMap.set('D', 3);
 shipMap.set('S', 3);
 shipMap.set('B', 4);
 shipMap.set('C', 5);
-
+// create ship factory function
 const Ship = function(mark) {
     const numberOfHoles = shipMap.get(mark);
     const hitCoordinates = [];

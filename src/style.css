@@ -1,4 +1,4 @@
-* {
+body, html {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     height: 100vh;
 }
@@ -87,7 +87,7 @@
     padding-bottom: 30px;
 }
 
-.progress_chart {
+.ships_chart {
     display: flex;
     flex-direction: column;
     height: 90%;
@@ -151,8 +151,6 @@
     height: 50%;
     z-index: 200;
 
-    /* flex-direction: column; */
-    /* align-items: center; */
     text-align: center;
     padding-top: 80px;
     font-size: 2rem;
@@ -161,50 +159,11 @@
     
 }
 
-.start_form_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.start_form_container > form > div:not(div.separate) {
-    height: 70px;
-    color: lightseagreen;
-    font-weight: bold;
-}
-
-div.separate {
-    height: 2px;
-    width: 100%;
-    margin: 0 auto 50px;
-    background-color: lightgray;
-}
-
-form > div:first-child {
-    font-size: 2rem;
-    text-align: center;
-    padding: 30px;
-}
-
-input[type=text] {
-    box-sizing: border-box;
-    height: 30px;
-    margin-left: 5px;
-    padding: 5px;
-}
-
-input[type=radio] {
-    height: 20px;
-    width: 20px;
-    margin-top: -2px;
-    vertical-align: middle;
-}
-
-button[type=submit], .restart {
+.restart {
     display: block;
     width: 40%;
-    height: 5%;
+    height: 15%;
+
     background-color: lightseagreen;
     border: none;
     border-radius: 5px;
@@ -215,11 +174,6 @@ button[type=submit], .restart {
     cursor: pointer;
 }
 
-.restart {
-    width: 40%;
-    height: 15%;
-}
-
 img {
     display: block;
     content: url(./images/whoa.gif);
@@ -228,5 +182,101 @@ img {
     object-fit: contain;
     margin: auto;
 }
+
+/* style start forms */
+.form_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game_form {
+    border: 3px solid lightseagreen;
+    border-radius: 20px;
+    padding: 20px;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#game_form > h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tab.player {
+    width: 60%;
+    margin: auto;
+}
+
+input[type=text] {
+    width: 300px;
+    height: 30px;
+    margin: 10px auto 10px 10px;
+}
+
+input[type=checkbox] {
+    height: 25px;
+    width: 25px;
+    vertical-align: middle;
+    margin: 10px auto 10px 10px;
+
+}
+
+button.page {
+    height: 40px;
+    width: 80px;
+    margin: 10px;
+    font: inherit;
+}
+
+  /* place ship form */
+.board_container {
+    height: 500px;
+    margin: 30px auto 20px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.left {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.right {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+/* overwrite some of the existing styles */
+
+.left > .ship {
+    flex-direction: column;
+}
+
+.left > .ship > .ship_title {
+    font-size: .8rem;
+    align-items: flex-end;
+    height: 60%;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+}
+
+.left > .ship > .ship_state {
+    height: 40%;
+}
+
+.left > .ship > .ship_state > .state_square {
+    width: 30%;
+}
+  
+
+
+
+
+
 
 

@@ -1,7 +1,13 @@
+import { createBoardForPlacement, createShipsForPlacement } from './form_ui';
 import Game from './game';
 import { constructGameUI } from './game_ui';
 
 const StartForm = function() {
+
+    function createForm() {
+        createShipsForPlacement();
+        createBoardForPlacement();
+    }
 
     function submitForm() {
         const form = document.querySelector('form#game_info');
@@ -34,7 +40,7 @@ const StartForm = function() {
         mainContainer.style.display = 'block';
     }
 
-    return {submitForm};
+    return {createForm, submitForm};
 }();
 
 export default StartForm;

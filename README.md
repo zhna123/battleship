@@ -67,6 +67,6 @@ npm run build
 2. Edit config file by adding `style-loader` and `css-loader` to the module configuration
 3. Now we can import css into the script `import './style.css'`
 
-## useful settings
+## Useful settings
 * Use source map by adding `devtool: 'inline-source-map',` to config file
 * Watch mode - add `"watch": "webpack --watch"` to script section of `package.json`
