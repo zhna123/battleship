@@ -8,32 +8,34 @@
 </head>
 <body>
     <script src="bundle.js" defer></script>
-    <div class="start_form_container">
-        <form action="index.html" method="post" id="game_info">
-            <div>BATTLESHIP</div>
-            
-            <div>
-                <label for="player1_name">PLAYER1 NAME</label>
-                <input type="text" name="player1_name" id="player1_name">              
+    <div class="form_container">
+        <form action="" id="game_form">
+            <h1>BATTLESHIP</h1>
+            <div class="tab player">ENTER PLAYER INFO:
+                <p>
+                    <label for="name">NAME</label>
+                    <input type="text" id="name">
+                </p>
+                <p>
+                    <label for="first">PLAY FIRST</label>
+                    <input type="checkbox" name="first" id="first">
+                </p>
             </div>
 
-            <div>
-                <label for="player_goes_first">GOES FIRST</label>
-                <input type="radio" name="player_goes_first" id="first" checked>
+            <div class="tab ships">PLACE PLAYER SHIPS:
+                <div class="board_container">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
             </div>
 
-            <div class="separate"></div>
-           
-            <div>
-                <label for="player2_name">PLAYER2 NAME</label>
-                <input type="text" name="player2_name" id="player2_name" placeholder="COMPUTER" disabled>              
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                  <button class="page">Previous</button>
+                  <button class="page">Next</button>
+                </div>
             </div>
 
-            <div>
-                <label for="player_goes_first">GOES FIRST</label>
-                <input type="radio" name="player_goes_first" id="second">
-            </div>
-            <button type="submit">START GAME</button>
         </form>
     </div>
     <div class="container">
