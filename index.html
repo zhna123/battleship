@@ -14,15 +14,15 @@
             <div class="tab player">ENTER PLAYER INFO:
                 <p>
                     <label for="name">NAME</label>
-                    <input type="text" id="name">
+                    <input type="text" id="name" required>
                 </p>
                 <p>
                     <label for="first">PLAY FIRST</label>
-                    <input type="checkbox" name="first" id="first">
+                    <input type="checkbox" name="first" id="first" checked>
                 </p>
             </div>
 
-            <div class="tab ships">PLACE PLAYER SHIPS:
+            <div class="tab ships">PLACE PLAYER SHIPS (OPTIONAL):
                 <div class="board_container">
                     <div class="left"></div>
                     <div class="right"></div>
@@ -31,8 +31,9 @@
 
             <div style="overflow:auto;">
                 <div style="float:right;">
-                  <button class="page">Previous</button>
-                  <button class="page">Next</button>
+                  <button type="button" class="page pre">PREVIOUS</button>
+                  <button type="button" class="page next">NEXT</button>
+                  <button type="submit" class="page">SUBMIT</button>
                 </div>
             </div>
 
