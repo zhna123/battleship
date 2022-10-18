@@ -6,6 +6,7 @@ body, html {
 .container {
     display: none;
     min-width: 760px;
+    height: 100vh;
 }
 
 .line {
@@ -43,14 +44,14 @@ body, html {
     flex-direction: column;
 }
 
-.name {
+.gameboard .name {
     height: 10%;
     text-align: center;
     color: rgb(88, 86, 86);
     font-size: 1.2rem;
 }
 
-.game_grid {
+.gameboard .game_grid {
     height: 90%;
     border: 1px solid lightgray;
     display: flex;
@@ -159,19 +160,21 @@ body, html {
     
 }
 
-.restart {
-    display: block;
-    width: 40%;
-    height: 15%;
-
+button {
     background-color: lightseagreen;
     border: none;
     border-radius: 5px;
-    margin: auto;
     color: white;
     font-weight: bold;
     font: inherit;
     cursor: pointer;
+}
+
+.restart {
+    display: block;
+    width: 40%;
+    padding: 5px;
+    margin: auto;
 }
 
 img {
@@ -210,24 +213,25 @@ img {
 }
 
 input[type=text] {
-    width: 300px;
+    width: 70%;
     height: 30px;
-    margin: 10px auto 10px 10px;
+    margin: 10px;
+    border: 1px solid lightseagreen;
+    border-radius: 5px;
+    padding: 10px;;
 }
 
 input[type=checkbox] {
     height: 25px;
     width: 25px;
     vertical-align: middle;
-    margin: 10px auto 10px 10px;
-
+    margin: 10px;
 }
 
 button.page {
     height: 40px;
-    width: 80px;
+    width: 90px;
     margin: 10px;
-    font: inherit;
 }
 
   /* place ship form */
@@ -271,6 +275,11 @@ button.page {
 
 .left > .ship > .ship_state > .state_square {
     width: 30%;
+}
+
+/* hide all steps by default */
+.tab {
+    display: none;
 }
   
 

@@ -9,6 +9,7 @@ function createShipDiv(i, draggable=false) {
     shipState.classList.add('ship_state');
     if (draggable) {
         shipState.draggable = true;
+        shipState.style.cursor = 'move';
     }
     // fill in ship names
     switch (i) {

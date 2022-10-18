@@ -105,9 +105,9 @@ const Game = function(playerName, firstPlayerName) {
             case 'P':
                 let patrolShipState; 
                 if (player === player1) {
-                    patrolShipState = document.querySelector('.progress_chart:nth-child(1) > .ship:first-child > .ship_state');
+                    patrolShipState = document.querySelector('.ships_chart:nth-child(1) > .ship:first-child > .ship_state');
                 } else {
-                    patrolShipState = document.querySelector('.progress_chart:nth-child(2) > .ship:first-child > .ship_state');
+                    patrolShipState = document.querySelector('.ships_chart:nth-child(2) > .ship:first-child > .ship_state');
                 }
                 for(let i=0; i<2; i++) {
                     const square = patrolShipState.querySelector(`.state_square:nth-child(${i+1})`);
@@ -122,9 +122,9 @@ const Game = function(playerName, firstPlayerName) {
             case 'D':
                 let destroyerShipState; 
                 if (player === player1) {
-                    destroyerShipState = document.querySelector('.progress_chart:nth-child(1) > .ship:nth-child(2) > .ship_state');
+                    destroyerShipState = document.querySelector('.ships_chart:nth-child(1) > .ship:nth-child(2) > .ship_state');
                 } else {
-                    destroyerShipState = document.querySelector('.progress_chart:nth-child(2) > .ship:nth-child(2) > .ship_state');
+                    destroyerShipState = document.querySelector('.ships_chart:nth-child(2) > .ship:nth-child(2) > .ship_state');
                 }
                 for(let i=0; i<3; i++) {
                     const square = destroyerShipState.querySelector(`.state_square:nth-child(${i+1})`);
@@ -139,9 +139,9 @@ const Game = function(playerName, firstPlayerName) {
             case 'S':
                 let submarineShipState; 
                 if (player === player1) {
-                    submarineShipState = document.querySelector('.progress_chart:nth-child(1) > .ship:nth-child(3) > .ship_state');
+                    submarineShipState = document.querySelector('.ships_chart:nth-child(1) > .ship:nth-child(3) > .ship_state');
                 } else {
-                    submarineShipState = document.querySelector('.progress_chart:nth-child(2) > .ship:nth-child(3) > .ship_state');
+                    submarineShipState = document.querySelector('.ships_chart:nth-child(2) > .ship:nth-child(3) > .ship_state');
                 }
                 for(let i=0; i<3; i++) {
                     const square = submarineShipState.querySelector(`.state_square:nth-child(${i+1})`);
@@ -156,9 +156,9 @@ const Game = function(playerName, firstPlayerName) {
             case 'B':
                 let battleshipShipState; 
                 if (player === player1) {
-                    battleshipShipState = document.querySelector('.progress_chart:nth-child(1) > .ship:nth-child(4) > .ship_state');
+                    battleshipShipState = document.querySelector('.ships_chart:nth-child(1) > .ship:nth-child(4) > .ship_state');
                 } else {
-                    battleshipShipState = document.querySelector('.progress_chart:nth-child(2) > .ship:nth-child(4) > .ship_state');
+                    battleshipShipState = document.querySelector('.ships_chart:nth-child(2) > .ship:nth-child(4) > .ship_state');
                 }
                 for(let i=0; i<4; i++) {
                     const square = battleshipShipState.querySelector(`.state_square:nth-child(${i+1})`);
@@ -173,9 +173,9 @@ const Game = function(playerName, firstPlayerName) {
             case 'C':
                 let carrierShipState; 
                 if (player === player1) {
-                    carrierShipState = document.querySelector('.progress_chart:nth-child(1) > .ship:last-child > .ship_state');
+                    carrierShipState = document.querySelector('.ships_chart:nth-child(1) > .ship:last-child > .ship_state');
                 } else {
-                    carrierShipState = document.querySelector('.progress_chart:nth-child(2) > .ship:last-child > .ship_state');
+                    carrierShipState = document.querySelector('.ships_chart:nth-child(2) > .ship:last-child > .ship_state');
                 }
                 for(let i=0; i<5; i++) {
                     const square = carrierShipState.querySelector(`.state_square:nth-child(${i+1})`);
