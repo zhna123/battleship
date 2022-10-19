@@ -19,6 +19,14 @@ function createDraggables() {
         ship.addEventListener('dragend', handleDragEnd);
     })
 
+    const targets = Array.from(document.querySelectorAll('.right .column'));
+    targets.forEach(target => {
+        target.addEventListener('dragover', handleDragOver);
+        target.addEventListener('dragenter', handleDragEnter);
+        target.addEventListener('dragleave', handleDragLeave);
+        target.addEventListener('drop', handleDrop);
+    })
+
 }
 
 function handleDragStart(e) {
@@ -27,6 +35,32 @@ function handleDragStart(e) {
 
 function handleDragEnd(e) {
     this.style.opacity = '1';
+    const targets = Array.from(document.querySelectorAll('.right .column'));
+    targets.forEach(target => {
+        target.classList.remove('over');
+    })
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    return false;
+}
+
+function handleDragEnter(e) {
+    const nextSibling = this.nextSibling;
+    if (nextSibling) {
+        this.classList.add('over');
+        this.nextSibling.classList.add('over'); 
+    }  
+}
+
+function handleDragLeave(e) {
+    this.classList.remove('over');
+}
+
+  function handleDrop(e) {
+    e.stopPropagation(); // stops the browser from redirecting.
+    return false;
 }
 
 export {createBoardForPlacement, createShipsForPlacement, createDraggables}
