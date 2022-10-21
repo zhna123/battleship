@@ -1,27 +1,7 @@
-const shipMap = new Map();
-shipMap.set('P', 2);
-shipMap.set('D', 3);
-shipMap.set('S', 3);
-shipMap.set('B', 4);
-shipMap.set('C', 5);
-// create ship factory function
-const Ship = function(mark) {
-    const numberOfHoles = shipMap.get(mark);
-    const hitCoordinates = [];
 
-    const placeShip = (start, isHorizontal) => {
-        let shipPlacement = [];
-        if (isHorizontal) {
-            for(let i=0; i<numberOfHoles; i++) {
-                shipPlacement.push([start[0]+i, start[1]]);
-            }
-        } else {
-            for(let i=0; i<numberOfHoles; i++) {
-                shipPlacement.push([start[0], start[1]+i])
-            }
-        }
-        return shipPlacement;
-    }
+// create ship factory function
+const Ship = function(mark, numberOfHoles) {
+    const hitCoordinates = [];
 
     const hit = (coordinate) => {
         hitCoordinates.push(coordinate);}
@@ -37,7 +17,7 @@ const Ship = function(mark) {
         return false;
     }
 
-    return {mark, hit, isSunk, placeShip, hitCoordinates};
+    return {mark, numberOfHoles, hit, isSunk, hitCoordinates};
 };
 
 export default Ship;

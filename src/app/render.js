@@ -1,5 +1,4 @@
-import { over, rest } from "lodash";
-
+import WhoaImage from '../images/whoa.gif'
 /*
     DOM manipulations
 */
@@ -32,8 +31,10 @@ function renderResult(winner) {
 
     gameEndDiv.textContent = 'WINNER IS: ' + winner.name;
 
-    const img = document.createElement('img');
-    gameEndDiv.appendChild(img);
+    const endImage = new Image();
+    endImage.src = WhoaImage;
+    endImage.classList.add('img');
+    gameEndDiv.appendChild(endImage);
     
     // restart button
     const restart = document.createElement('button');

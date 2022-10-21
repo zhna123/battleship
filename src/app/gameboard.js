@@ -1,12 +1,13 @@
 import Ship from "./ship";
+import { randomBoolean, randomCoordinate } from "./util";
 
 const Gameboard = function() {
 
-    const patrol = Ship('P');
-    const destroyer = Ship('D');
-    const submarine = Ship('S');
-    const battleShip = Ship('B');
-    const carrier = Ship('C');
+    const patrol = Ship('P', 2);
+    const destroyer = Ship('D', 3);
+    const submarine = Ship('S', 3);
+    const battleShip = Ship('B', 4);
+    const carrier = Ship('C', 5);
 
     // 10X10 grid
     const gameboard = [];
@@ -20,19 +21,64 @@ const Gameboard = function() {
     const missedAttacks = [];
     const sunkShips = [];
 
-    const setupGameboard = (pStart, dStart, sStart, bStart, cStart) => {
+    const setupGameboard = () => {
+        initGameboard();
         // place all ships
-        setupShip(patrol, pStart, true);
-        setupShip(destroyer, dStart, true);
-        setupShip(submarine, sStart, false)
-        setupShip(battleShip, bStart, true)
-        setupShip(carrier, cStart, true);
+        generateShipPlacement(8, patrol);
+        generateShipPlacement(7, destroyer);
+        generateShipPlacement(7, submarine)
+        generateShipPlacement(6, battleShip);
+        generateShipPlacement(5, carrier);
     }
 
-    const setupShip = (ship, start, isHorizontal) => {
-        const placement = ship.placeShip(start, isHorizontal);
-        for(let i=0; i<placement.length; i++) {
-            gameboard[placement[i][0]][placement[i][1]] = ship.mark;
+    const generateShipPlacement = (coordinateUpperRange, ship) => {
+        const isHorizontal = randomBoolean();
+        generatePlacement(isHorizontal, coordinateUpperRange, ship);
+    }
+
+    const isNotOccupiedHorizontally = (coordinate, numberOfHoles) => {
+        while (numberOfHoles > 0) {
+            console.log(numberOfHoles)
+            console.log(coordinate)
+            if (gameboard[coordinate[0] + (numberOfHoles - 1)][coordinate[1]]) {
+                return false;
+            }
+            numberOfHoles--;
+        }
+        return true;
+    }
+
+    const isNotOccupiedVertically = (coordinate, numberOfHoles) => {
+        while (numberOfHoles > 0) {
+            if (gameboard[coordinate[0]][coordinate[1] + (numberOfHoles - 1)]) {
+                return false;
+            }
+            numberOfHoles--;
+        }
+        return true;
+    }
+
+    const generatePlacement = (isHorizontal, coordinateUpperRange, ship) => {
+        const numberOfHoles = ship.numberOfHoles;
+        const mark = ship.mark;
+
+        let coordinate = randomCoordinate(coordinateUpperRange)
+
+        if (isHorizontal) {
+            while(!isNotOccupiedHorizontally(coordinate, numberOfHoles)) {
+                coordinate = randomCoordinate(coordinateUpperRange);
+            }
+            for (let i=0; i< numberOfHoles; i++) {
+                gameboard[coordinate[0] + i][coordinate[1]] = mark;
+            }
+        } else {
+            while(!isNotOccupiedVertically(coordinate, numberOfHoles)) {
+                coordinate = randomCoordinate(coordinateUpperRange);
+            }
+
+            for (let i=0; i< numberOfHoles; i++) {
+                gameboard[coordinate[0]][coordinate[1] + i] = mark;
+            }
         }
     }
 
@@ -82,7 +128,7 @@ const Gameboard = function() {
         return sunkShips.length == 5;
     }
 
-    return {initGameboard, setupGameboard, receiveAttack, areAllSunk, gameboard}
+    return {setupGameboard, receiveAttack, areAllSunk, gameboard}
 
 };
 

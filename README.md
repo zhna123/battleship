@@ -2,14 +2,16 @@
 
 ## Introduction
 1. BATTLESHIP simulates the classic battleship game. 
-2. Player will play against computer.
-3. Player can choose who goes first.
+2. Ship arrangements on the gameboards are generated randomly.
+3. Player will play against computer.
+4. Player can choose who goes first.
 
 ## Game Demo
 [BATTLESHIP DEMO](link)
 
-## Further Work
-Two human players mode - support playing on mobile device
+## Future Work
+1. Player chooses ship arrangements by entering coordinates or drag/drop
+2. Human players mode - support playing on mobile device
 
 ## Other
 1. The project is set up with webpack
@@ -66,6 +68,10 @@ npm run build
 1. `npm install --save-dev style-loader css-loader`
 2. Edit config file by adding `style-loader` and `css-loader` to the module configuration
 3. Now we can import css into the script `import './style.css'`
+
+## Images
+1. Add rules in config file - see webpack.config.js for example
+2. import image to script file
 
 ## Useful settings
 * Use source map by adding `devtool: 'inline-source-map',` to config file

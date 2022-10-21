@@ -13,12 +13,10 @@ const Game = function(playerName, firstPlayerName) {
     const newGame = () => {
 
         // setup gameboards
-        player1Gameboard.initGameboard();
-        player1Gameboard.setupGameboard([2, 3], [0, 0], [0, 1], [2, 9], [1, 7]);
+        player1Gameboard.setupGameboard();
         renderPlayer1Gameboard(player1, player1Gameboard.gameboard)
 
-        aiPlayerGameboard.initGameboard();
-        aiPlayerGameboard.setupGameboard([2, 3], [0, 0], [0, 1], [2, 9], [1, 7]);
+        aiPlayerGameboard.setupGameboard();
         renderAIPlayerGameboard(aiPlayer);
 
         if (firstPlayerName === 'COMPUTER') {

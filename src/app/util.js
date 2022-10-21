@@ -1,6 +1,8 @@
-function randomCoordinate() {
-    const x = Math.floor(Math.random() * 10);
-    const y = Math.floor(Math.random() * 10);
+// return integer coordinate with upper range n
+// eg: when n=9, return coordinate range 0-9
+function randomCoordinate(n) {
+    const x = Math.floor(Math.random() * (n+1));
+    const y = Math.floor(Math.random() * (n+1));
     return [x, y];
 }
 
