@@ -31,6 +31,8 @@ function createDraggables() {
 
 function handleDragStart(e) {
     this.style.opacity = '0.4';
+
+    e.dataTransfer.setData('text/plain', 'P');
 }
 
 function handleDragEnd(e) {
@@ -47,19 +49,23 @@ function handleDragOver(e) {
 }
 
 function handleDragEnter(e) {
+    this.classList.add('over');
     const nextSibling = this.nextSibling;
     if (nextSibling) {
-        this.classList.add('over');
         this.nextSibling.classList.add('over'); 
     }  
 }
 
 function handleDragLeave(e) {
+    // works when going from left to right
     this.classList.remove('over');
 }
 
-  function handleDrop(e) {
+function handleDrop(e) {
     e.stopPropagation(); // stops the browser from redirecting.
+    const data = e.dataTransfer.getData('text/plain');
+    this.innerHTML = data;
+    this.nextSibling.innerHTML = data;
     return false;
 }
 
