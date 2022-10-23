@@ -1,9 +1,11 @@
+import { getRandomInt } from "./util";
+
 const Player = function(name) {
     const triedCoordinate = [];
 
     const attack = (coordinate) => {
         // generate a coordinate
-        if (coordinate === undefined) {
+        if (!coordinate) {
             const generated = generateCoordinate();
             triedCoordinate.push(generated);
             return generated;
@@ -11,9 +13,6 @@ const Player = function(name) {
         return coordinate;
     }
 
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-    }
 
     function generateCoordinate() {
         let coordinate = [getRandomInt(10), getRandomInt(10)];

@@ -76,3 +76,17 @@ npm run build
 ## Useful settings
 * Use source map by adding `devtool: 'inline-source-map',` to config file
 * Watch mode - add `"watch": "webpack --watch"` to script section of `package.json`
+
+## JEST Setup 
+
+1. Install jest `npm install --save-dev jest`
+2. Add to package.json
+```
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+3. Run `npm test`
+

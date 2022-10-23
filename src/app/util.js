@@ -10,7 +10,11 @@ function randomBoolean() {
     return Math.random() < 0.5;
 }
 
-export {randomCoordinate, randomBoolean}
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+export {randomCoordinate, randomBoolean, getRandomInt}
 
 
 

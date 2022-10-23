@@ -3,21 +3,11 @@
 const Ship = function(mark, numberOfHoles) {
     const hitCoordinates = [];
 
-    const hit = (coordinate) => {
-        hitCoordinates.push(coordinate);}
+    const hit = (coordinate) => hitCoordinates.push(coordinate);
 
-    const isSunk = () => {
-        if(hitCoordinates.length == numberOfHoles) {
-            console.log('mark:' + mark+ ' is sunk!');
-            console.log(hitCoordinates.length);
-            console.log(numberOfHoles);
+    const isSunk = () => hitCoordinates.length == numberOfHoles;
 
-            return true;
-        }
-        return false;
-    }
-
-    return {mark, numberOfHoles, hit, isSunk, hitCoordinates};
+    return {mark, numberOfHoles, hit, isSunk};
 };
 
 export default Ship;
