@@ -7,7 +7,7 @@
 4. Player can choose who goes first.
 
 ## Game Demo
-[BATTLESHIP DEMO](link)
+[BATTLESHIP DEMO](https://zhna123.github.io/battleship/)
 
 ## Future Work
 1. Player chooses ship arrangements by entering coordinates or drag/drop
@@ -90,4 +90,8 @@ npm run build
 }
 ```
 3. Run `npm test`
+
+## Deploy 
+1. Make sure `dist` folder is not ignored by git
+2. Run `git subtree push --prefix dist origin gh-pages` on main branch
 
