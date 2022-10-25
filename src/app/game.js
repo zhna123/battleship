@@ -38,10 +38,13 @@ const Game = function(playerName, firstPlayerName) {
             const columns = Array.from(row.querySelectorAll('.column'));
             columns.forEach((column, columnIndex) => {
                 if (rowIndex == attackedCoordinate[0] && columnIndex == attackedCoordinate[1]) {
-                    if (player1Gameboard.gameboard[rowIndex][columnIndex] !== undefined) {
+                    const attackedValue = player1Gameboard.gameboard[rowIndex][columnIndex];
+                    if (attackedValue !== undefined) {
                         // get a hit
+                        // record this coordinate to help generate next attack
+                        aiPlayer.hitMap.get(attackedValue).push([rowIndex, columnIndex]);
                         column.style.backgroundColor = 'indianred';
-                        updateShipState(player1Gameboard.gameboard[rowIndex][columnIndex], player1);
+                        updateShipState(attackedValue, player1);
 
                         player1Gameboard.receiveAttack([rowIndex, columnIndex]);
                     } else {
@@ -65,6 +68,7 @@ const Game = function(playerName, firstPlayerName) {
     }
     
     function attackListener(rowIndex, columnIndex, column) {
+
         const attackedMark = aiPlayerGameboard.gameboard[rowIndex][columnIndex];
         if (attackedMark !== undefined) {
             column.style.backgroundColor = 'indianred';
