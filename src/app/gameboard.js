@@ -38,8 +38,6 @@ const Gameboard = function() {
 
     const isNotOccupiedHorizontally = (coordinate, numberOfHoles) => {
         while (numberOfHoles > 0) {
-            console.log(numberOfHoles)
-            console.log(coordinate)
             if (gameboard[coordinate[0] + (numberOfHoles - 1)][coordinate[1]]) {
                 return false;
             }
