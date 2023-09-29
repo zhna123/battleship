@@ -91,6 +91,32 @@ npm run build
 3. Run `npm test`
 
 ## Deploy 
-1. Make sure `dist` folder is not ignored by git
-2. Run `git subtree push --prefix dist origin gh-pages` on main branch
+Make sure `dist` folder is not ignored by git
+* update `package.json`
+```
+{
+ "name": "project name",
+ "version": "1.0.0",
+ "repository": {
+   "url": "git+https://github.com/{USERNAME}/{REPONAME}.git"
+ },
+...
+}
+```
+* add scripts
+```
+{
+...
+ "scripts": {
+   "build": "webpack --mode=development",
+   ...
+   "predeploy": "npm run build",
+   "deploy": "gh-pages -d dist"
+ },
+...
+}
+```
+* `npm install --save-dev gh-pages`
+* `npm run deploy`
+
 
