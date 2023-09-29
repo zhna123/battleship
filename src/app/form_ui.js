@@ -57,6 +57,11 @@ function handleDragEnd(e) {
         submit.style.backgroundColor = 'lightseagreen'
         submit.style.cursor = 'pointer'
         submit.disabled = false
+
+        const preBtn = document.querySelector('.page.pre');
+        preBtn.style.backgroundColor = 'grey'
+        preBtn.style.cursor = 'auto'
+        preBtn.disabled = true
     }
 }
 
