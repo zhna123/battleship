@@ -10,10 +10,16 @@ const Gameboard = function() {
     const carrier = Ship('C', 5);
 
     // 10X10 grid
-    const gameboard = [];
+    let gameboard = [];
     const initGameboard = () => {
         for(let i=0; i<10; i++) {
             gameboard.push([]);
+        }
+    }
+
+    function setGameboard(playerGameboard) {
+        for(let i=0; i<10; i++) {
+            gameboard.push(playerGameboard[i])
         }
     }
 
@@ -126,7 +132,7 @@ const Gameboard = function() {
         return sunkShips.length == 5;
     }
 
-    return {setupGameboard, receiveAttack, areAllSunk, gameboard}
+    return {setupGameboard, receiveAttack, areAllSunk, gameboard, initGameboard, setGameboard}
 
 };
 

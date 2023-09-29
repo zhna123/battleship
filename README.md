@@ -2,17 +2,16 @@
 
 ## Introduction
 1. BATTLESHIP simulates the classic battleship game. 
-2. Ship arrangements on the gameboards are random.
-3. Player will play against computer.
-4. Player can choose who goes first.
+2. Players can place their ships by dragging/dropping or skip to arrange ships randomly on the game board.
+3. Players play against computer.
+4. Players can choose who takes the first turn.
 
 ## Game Demo
 [BATTLESHIP DEMO](https://zhna123.github.io/battleship/)
 
 ## Future Work
-1. Player chooses ship arrangements by entering coordinates or drag/drop
-2. Human players mode - support playing on mobile device
-3. AI intelligence
+1. Human players mode - support playing on mobile device
+2. AI player
 
 ## Other
 1. The project is set up with webpack

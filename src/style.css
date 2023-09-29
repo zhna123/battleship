@@ -98,6 +98,7 @@ body, html {
 .ship {
     height: 20%;
     display: flex;
+    gap: 10px;
 }
 
 .ship_title {
@@ -111,7 +112,7 @@ body, html {
 }
 
 .ship_state {
-    width: 70%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -246,7 +247,7 @@ button.page {
     grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    align-items: flex-start;
 }
 
 .right {
@@ -254,26 +255,20 @@ button.page {
     grid-row: 1 / 2;
 }
 
-/* overwrite some of the existing styles */
+/* overwrite some of the existing styles when they are applied to the place ship section */
 
 .left > .ship {
+    display: flex;
     flex-direction: column;
 }
 
-.left > .ship > .ship_title {
-    font-size: .8rem;
-    align-items: flex-end;
-    height: 60%;
-    box-sizing: border-box;
-    padding-bottom: 10px;
-}
-
 .left > .ship > .ship_state {
-    height: 40%;
+    justify-content: center;
 }
 
 .left > .ship > .ship_state > .state_square {
-    width: 30%;
+    width: 15px;
+    height: 15px;
 }
 
 /* hide all steps by default */
@@ -284,6 +279,15 @@ button.page {
 .over {
     border: 1px dotted red;
 }
+
+.over::before {
+    font-weight: lighter;
+    font-size: xx-small;
+    color: red;
+    content: "Place Ship Here";
+}
+
+
   
 
 

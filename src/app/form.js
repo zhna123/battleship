@@ -1,6 +1,7 @@
 import { createBoardForPlacement, createDraggables, createShipsForPlacement } from './form_ui';
 import Game from './game';
 import { constructGameUI } from './game_ui';
+import Gameboard from './gameboard';
 
 const StartForm = function() {
 
@@ -23,17 +24,23 @@ const StartForm = function() {
 
         const preBtn = document.querySelector('.page.pre');
         const nextBtn = document.querySelector('.page.next');
-        const submit = document.querySelector('button[type=submit]');
+        const skip = document.querySelector('button[type=submit]#skip');
+        const submit = document.querySelector('button[type=submit]#submit');
         if (n == 0) {
             tabs[1].style.display = 'none';
             preBtn.style.display = 'none';
             nextBtn.style.display = 'inline';
+            skip.style.display = 'none'
             submit.style.display = 'none';
         } else {
             tabs[0].style.display = 'none';
             preBtn.style.display = 'inline';
             nextBtn.style.display = 'none';
+            skip.style.display = 'inline'
             submit.style.display = 'inline';
+            submit.style.backgroundColor = 'grey'
+            submit.style.cursor = 'auto'
+            submit.disabled = true
         }
     }
 
@@ -62,9 +69,12 @@ const StartForm = function() {
 
 
     function submitForm() {
+
+        const skip = document.querySelector('button[type=submit]#skip');
+        const submit = document.querySelector('button[type=submit]#submit');
+
         const form = document.querySelector('form#game_form');
-    
-        form.addEventListener('submit', (e) => {
+        skip.addEventListener('click', e => {
             e.preventDefault();
 
             const playerName = form.elements['name'].value;
@@ -81,7 +91,42 @@ const StartForm = function() {
             constructGameUI();
 
             Game(playerName, firstPlayer).newGame();
-        });
+        })
+        submit.addEventListener('click', e => {
+            e.preventDefault();
+
+            const playerName = form.elements['name'].value;
+            let firstPlayer;
+
+            const checkedbox = document.querySelector('input[type=checkbox]');
+            if (checkedbox.checked) {
+                firstPlayer = playerName;
+            } else {
+                firstPlayer = 'COMPUTER';
+            }
+            
+            closeForm();
+            constructGameUI();
+
+            Game(playerName, firstPlayer).newGame(getUserPlacedBoard());
+        })
+    }
+
+    function getUserPlacedBoard() {
+        const playerGameboard = Gameboard();
+        playerGameboard.initGameboard()
+        const gameboardArray = playerGameboard.gameboard
+    
+        const gameBoardDom = document.querySelector('.right')
+        console.log(gameBoardDom)
+        const rows = Array.from(gameBoardDom.querySelectorAll('.row'));
+        rows.forEach((row, rowIndex) => {
+            const columns = Array.from(row.querySelectorAll('.column'));
+            columns.forEach((column, columnIndex) => {
+                gameboardArray[rowIndex][columnIndex] = column.textContent ? column.textContent : ''
+            })
+        })
+        return gameboardArray
     }
 
     function closeForm() {
